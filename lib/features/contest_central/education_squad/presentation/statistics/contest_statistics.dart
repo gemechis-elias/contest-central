@@ -287,6 +287,9 @@ class _ContestStatisticsState extends State<ContestStatistics> {
             ),
           ),
           // Coontest Standing
+          SizedBox(
+            child: ContestStanding(),
+          ),
         ])));
   }
 

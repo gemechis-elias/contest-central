@@ -1,3 +1,4 @@
+import 'package:contest_central/features/contest_central/education_squad/presentation/statistics/user_list_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/colors.dart';
@@ -13,7 +14,7 @@ class _ContestStandingState extends State<ContestStanding>
 
   @override
   void initState() {
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
     super.initState();
   }
 
@@ -40,11 +41,12 @@ class _ContestStandingState extends State<ContestStanding>
           ),
         ),
         const SizedBox(height: 10),
-        Expanded(
+        SizedBox(
           // Wrap the outer Container with Expanded
           child: Container(
             width: 400,
-            decoration: BoxDecoration(
+            height: 400,
+            decoration: const BoxDecoration(
               color: AppColors.itemsBackground,
             ),
             child: Column(
@@ -54,9 +56,26 @@ class _ContestStandingState extends State<ContestStanding>
                   indicatorSize: TabBarIndicatorSize.tab,
                   indicatorWeight: 4,
                   tabs: const [
-                    Tab(icon: Text("ITEM ONE")),
-                    Tab(icon: Text("ITEM TWO")),
-                    Tab(icon: Text("ITEM THREE")),
+                    Tab(
+                        icon: Text("All",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.white))),
+                    Tab(
+                        icon: Text("G41",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.white))),
+                    Tab(
+                        icon: Text("G42",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.white))),
+                    Tab(
+                        icon: Text("G43",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.white))),
+                    Tab(
+                        icon: Text("G44",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.white))),
                   ],
                   controller: _tabController,
                 ),
@@ -65,19 +84,43 @@ class _ContestStandingState extends State<ContestStanding>
                   // Wrap the TabBarView with Expanded
                   child: TabBarView(
                     controller: _tabController,
-                    children: const [
-                      Align(
-                          child: Text("Section : 1",
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Column(
+                          children: [
+                            buildUserStanding(1, 'Gemechis Elias', 'Group 41',
+                                '5 out of 7 Solved'),
+                            const Divider(
+                              color: Color.fromRGBO(210, 210, 210, 0.47),
+                              thickness: 0.5,
+                            ),
+                            buildUserStanding(
+                                2, 'John Doe', 'Group 27', '4 out of 7 Solved'),
+                            const Divider(
+                              color: Color.fromRGBO(210, 210, 210, 0.47),
+                              thickness: 0.5,
+                            ),
+                            // Add more user standings as needed
+                          ],
+                        ),
+                      ),
+                      const Align(
+                          child: Text("No G41 Data",
                               style: TextStyle(
-                                  fontSize: 20, color: Colors.black))),
-                      Align(
-                          child: Text("Section : 2",
+                                  fontSize: 20, color: Colors.white))),
+                      const Align(
+                          child: Text("No G42 Data",
                               style: TextStyle(
-                                  fontSize: 20, color: Colors.black))),
-                      Align(
-                          child: Text("Section : 3",
+                                  fontSize: 20, color: Colors.white))),
+                      const Align(
+                          child: Text("No G43 Data",
                               style: TextStyle(
-                                  fontSize: 20, color: Colors.black))),
+                                  fontSize: 20, color: Colors.white))),
+                      const Align(
+                          child: Text("No G44 Data",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.white))),
                     ],
                   ),
                 ),
